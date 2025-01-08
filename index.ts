@@ -4,7 +4,7 @@ import { ollamaRouter } from "./routes/ollamaRoutes"
 
 dotenv.config()
 
-const app = express()
+export const app = express()
 
 
 app.use("/api/v1/ollama", ollamaRouter)
