@@ -13,7 +13,8 @@ export async function register (req: Request, res: Response) {
     const {error, value} = registerValidator.validate(body)
     if (error) return res.status(400).json({message: error.message})
     // check if user exists
-
+    const user = await UserModel.findOne({email: value.email})
+    if (user) return res.status(400).json({message: "User already exists"})
     // hash password
     const hash =  await bcrypt.hash(value.password, 10)
 

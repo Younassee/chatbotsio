@@ -1,0 +1,11 @@
+@host=http://localhost:3000/api/v1/auth
+
+
+POST {{host}}/register
+Content-Type: application/json
+
+{
+    "username": "http agent",
+    "email":  "http@agent.com",
+    "password": "password"
+}
