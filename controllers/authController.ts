@@ -41,6 +41,13 @@ export async function login (req: Request, res: Response) {
     if (!match) return res.status(400).json({message: "Invalid password"})
     // send response
     const payload = {email: user.email, username: user.username}
-    const token = jwt.sign(payload, process.env.JWT_SECRET!, {expiresIn: '2d'})
+    const token = jwt.sign(payload, process.env.JWT_SECRET!, {expiresIn: '1h'})
     return res.status(200).json({token})
+}
+
+
+
+export async function me (req: Request, res: Response) {
+    // @ts-ignore
+    return res.status(200).json({user: req.user})
 }

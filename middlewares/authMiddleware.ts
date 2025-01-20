@@ -1,0 +1,24 @@
+import { verify } from "jsonwebtoken"
+import type { Request, Response, NextFunction } from "express"
+
+
+export function authMiddleware(req: Request, res: Response, next: NextFunction) {
+
+    try {
+        const token = req.headers.authorization?.split(" ")[1] as string;
+        const user = verify(token, process.env.JWT_SECRET!)
+        if (!user) {
+            return res.status(401).json({ error: "unauthorized" })
+        }
+        // @ts-ignore
+        req.user = user;
+        next()
+    }
+
+    catch (error) {
+        return res.status(500).json({ error: "Internal Server Error" })
+    }
+
+
+
+}

@@ -10,7 +10,6 @@ Content-Type: application/json
     "password": "password"
 }
 ###
-
 POST {{host}}/login
 Content-Type: application/json
 
@@ -18,3 +17,7 @@ Content-Type: application/json
     "email":  "http@agent.com",
     "password": "password"
 }
+
+###
+GET {{host}}/me 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imh0dHBAYWdlbnQuY29tIiwidXNlcm5hbWUiOiJodHRwIGFnZW50IiwiaWF0IjoxNzM3Mzg4MjYwLCJleHAiOjE3MzczOTE4NjB9.AmoE_m6oC48w5SL2jbdDBRaT__uyGOEvIKY8bO2RYtU
