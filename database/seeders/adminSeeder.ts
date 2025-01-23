@@ -9,7 +9,7 @@ dotenv.config()
 
 async function adminSeeder () {
 
-    await dbConnect()
+    const connection = await dbConnect()
 
     const data = {
         username : "admin",
@@ -25,7 +25,8 @@ async function adminSeeder () {
    }
    await UserModel.create(data)
    console.log("Admin seeder executed successfully");
-   process.exit(1)
+   connection?.connection.close()
+   process.exit(0)
 }
 
 

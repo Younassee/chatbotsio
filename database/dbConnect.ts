@@ -1,11 +1,12 @@
-import {connect} from "mongoose"
+import { connect } from "mongoose"
 
 
 export async function dbConnect() {
 
     try {
-        await connect(process.env.MONGO_URI!)
+        const connection = await connect(process.env.MONGO_URI!)
         console.log("Database connected")
+        return connection
     } catch (error) {
         console.log(error)
     }
