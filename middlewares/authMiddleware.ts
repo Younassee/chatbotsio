@@ -1,5 +1,6 @@
 import { verify } from "jsonwebtoken"
 import type { Request, Response, NextFunction } from "express"
+import { loggerError } from "../utils/logger";
 
 
 export function authMiddleware(req: Request, res: Response, next: NextFunction) {
@@ -16,6 +17,7 @@ export function authMiddleware(req: Request, res: Response, next: NextFunction) 
     }
 
     catch (error) {
+        loggerError(error as string)
         return res.status(500).json({ error: "Internal Server Error" })
     }
 
