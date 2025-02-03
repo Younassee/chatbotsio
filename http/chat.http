@@ -17,3 +17,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imh0dHBAY
     {"content" :  "ADD 3 to your precedent response", "role" :  "user"}
   ]
 }
+
+
+
+###
+
+GET {{host}}/history
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imh0dHBAYWdlbnQuY29tIiwidXNlcm5hbWUiOiJodHRwIGFnZW50IiwiaWQiOiI2NzdmZDUxNDE0OWVlZTA3M2JmODE4NTQiLCJyb2xlIjoidXNlciIsImlhdCI6MTczODU5MTc1NiwiZXhwIjoxNzM4NTk1MzU2fQ.zvgCvDWYV0ejlP3wM7aXDGLQnwkN_jmK8pBEMUS9Lps

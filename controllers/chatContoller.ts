@@ -6,7 +6,6 @@ import { ChatModel } from '../models/chatModel'
 
 
 export  async  function chat (req: Request, res: Response) {
-
     // @ts-ignore USER_ID
     const userId = req.user.id;
     //[{content: string, role: string}]
@@ -36,3 +35,10 @@ export  async  function chat (req: Request, res: Response) {
 /// *** SUPPRIMER LA CONVERSATION
 
 /// *** RECUPERER L'historique
+
+export  async  function  chatHistory(req: Request, res: Response) {
+    // @ts-ignore USER_ID
+    const userId = req.user.id;
+    const histories = await  ChatModel.find({userId: userId}).select("title")
+    return res.status(200).json(histories)
+}
