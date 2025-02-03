@@ -6,6 +6,7 @@ import { dbConnect } from "./database/dbConnect"
 import { authRouter } from "./routes/authRoutes"
 import { userRouter } from "./routes/userRoutes"
 import { loggerInfo } from "./utils/logger"
+import {chatRouter} from "./routes/chatroutes.ts";
 
 dotenv.config()
 
@@ -19,9 +20,10 @@ app.use((req : Request , res: Response, next: NextFunction) => {
 })
 
 
-app.use("/api/v1/ollama", ollamaRouter)
+app.use("/api/v1/ollama",ollamaRouter)
 app.use("/api/v1/auth", authRouter)
 app.use("/api/v1/user", userRouter)
+app.use("/api/v1/chat", chatRouter)
 
 
 app.listen(process.env.PORT, () => {
