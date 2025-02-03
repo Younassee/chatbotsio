@@ -28,8 +28,6 @@ export async function updatePassword(req: Request, res: Response) {
      const hash = await bcrypt.hash(newPassword, 10)
      user.password = hash
      await user.save()
-     
+
      return res.status(200).json({message: "password updated!"})
-
-
 }
