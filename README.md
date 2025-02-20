@@ -2,14 +2,21 @@
 
 To install dependencies:
 
+
+install ollama <a href=https://ollama.com/>ollama<a/>
+
 ```bash
 bun install
+```
+rename .env.example to .env
+
+```bash
+mv .env.example .env
 ```
 
 To run:
 
 ```bash
-bun run index.ts
+bun run 
 ```
 
-This project was created using `bun init` in bun v1.1.38. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
