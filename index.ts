@@ -16,6 +16,7 @@ dotenv.config()
 export const app = express()
 app.use(cors())
 app.use(express.json())
+app.use("/public/images", express.static("public/images"))
 
 app.use((req : Request , res: Response, next: NextFunction) => {
     loggerInfo(req)
