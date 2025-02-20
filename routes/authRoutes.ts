@@ -5,7 +5,7 @@ import { authMiddleware } from "../middlewares/authMiddleware"
 export const authRouter = Router()
 
 // @ts-ignore
-authRouter.post("/register", authMiddleware, register)
+authRouter.post("/register",  register)
 // @ts-ignore
 authRouter.post("/login", login)
 

@@ -1,6 +1,7 @@
 import express from "express"
 import type {Request, Response, NextFunction} from "express"
 import dotenv from "dotenv"
+import cors from "cors"
 import { ollamaRouter } from "./routes/ollamaRoutes"
 import { dbConnect } from "./database/dbConnect"
 import { authRouter } from "./routes/authRoutes"
@@ -8,11 +9,13 @@ import { userRouter } from "./routes/userRoutes"
 import { loggerInfo } from "./utils/logger"
 import {chatRouter} from "./routes/chatroutes.ts";
 
+
+
 dotenv.config()
 
 export const app = express()
+app.use(cors())
 app.use(express.json())
-
 
 app.use((req : Request , res: Response, next: NextFunction) => {
     loggerInfo(req)

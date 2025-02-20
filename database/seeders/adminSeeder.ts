@@ -30,4 +30,4 @@ async function adminSeeder () {
 }
 
 
-adminSeeder()
+await adminSeeder()

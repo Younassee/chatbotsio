@@ -1,6 +1,7 @@
 import {Router} from "express"
 import { authMiddleware } from "../middlewares/authMiddleware"
-import { updatePassword, updateUsername } from "../controllers/userController"
+import {updatePassword, updateProfileThumbnail, updateUsername} from "../controllers/userController"
+import multer from "../middlewares/multer"
 
 export const userRouter = Router()
 
@@ -8,4 +9,7 @@ export const userRouter = Router()
 userRouter.put("/username/update", authMiddleware, updateUsername)
 
 // @ts-ignore
-userRouter.put("/password/update", authMiddleware, updatePassword)
+userRouter.put("/password/update",  authMiddleware,updatePassword)
+
+// @ts-ignore
+userRouter.put("/thumbnail/update",  authMiddleware, multer, updateProfileThumbnail)
