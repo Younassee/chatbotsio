@@ -20,7 +20,7 @@ async function adminSeeder () {
    const admin =  await UserModel.findOne({email : data.email})
 
    if(admin) {
-     console.log("Admin seeder not executed");
+     console.log("Admin seeder not executed up to date");
      return
    }
    await UserModel.create(data)

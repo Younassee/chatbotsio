@@ -3,7 +3,9 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "dev": "bun --watch index.ts"
+    "dev": "bun --watch index.ts",
+    "db:seed:admin": "bun run database/seeders/adminSeeder.ts",
+    "db:seed:users": "bun run database/seeders/fakeUsersSeeder.ts"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
@@ -26,6 +28,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "@faker-js/faker": "^9.6.0",
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
