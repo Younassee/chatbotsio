@@ -4,7 +4,7 @@
 
 POST {{host}}
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imh0dHBAYWdlbnQuY29tIiwidXNlcm5hbWUiOiJodHRwIGFnZW50IiwiaWQiOiI2NzdmZDUxNDE0OWVlZTA3M2JmODE4NTQiLCJyb2xlIjoidXNlciIsImlhdCI6MTczODU5MTc1NiwiZXhwIjoxNzM4NTk1MzU2fQ.zvgCvDWYV0ejlP3wM7aXDGLQnwkN_jmK8pBEMUS9Lps
+Authorization: Bearer <your valid jwt token>
 
 {
   "chatId" : "67a0cf0e1e6a91eb3dc337c1",
@@ -23,4 +23,4 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imh0dHBAY
 ###
 
 GET {{host}}/history
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imh0dHBAYWdlbnQuY29tIiwidXNlcm5hbWUiOiJodHRwIGFnZW50IiwiaWQiOiI2NzdmZDUxNDE0OWVlZTA3M2JmODE4NTQiLCJyb2xlIjoidXNlciIsImlhdCI6MTczODU5MTc1NiwiZXhwIjoxNzM4NTk1MzU2fQ.zvgCvDWYV0ejlP3wM7aXDGLQnwkN_jmK8pBEMUS9Lps
+Authorization: Bearer <your valid jwt token>

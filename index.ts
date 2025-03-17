@@ -2,6 +2,7 @@ import express from "express"
 import type {Request, Response, NextFunction} from "express"
 import dotenv from "dotenv"
 import cors from "cors"
+import  expressListEndpoints from "express-list-endpoints";
 import { ollamaRouter } from "./routes/ollamaRoutes"
 import { dbConnect } from "./database/dbConnect"
 import { authRouter } from "./routes/authRoutes"
@@ -15,6 +16,7 @@ import {adminRouter} from "./routes/adminRoutes.ts";
 dotenv.config()
 
 export const app = express()
+
 app.use(cors())
 app.use(express.json())
 app.use("/public/images", express.static("public/images"))
@@ -34,5 +36,7 @@ app.use("/api/v1/admin", adminRouter)
 
 app.listen(process.env.PORT, () => {
     dbConnect()
+    const endpoints = expressListEndpoints(app);
+    console.log(endpoints);
     console.log(`Server is running on port ${process.env.PORT}`)
 })
