@@ -30,7 +30,14 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
 - [Ollama models list](https://ollama.com/search)
 
 ``` szh
-    ollama pull nom_du_model
+    # Télécharge un modèle de langage depuis le référentiel d'Ollama et l'enregistre localement sur la machine
+    ollama pull <nom_du_model>
+
+    # Liste les modèles disponible
+    ollama list
+
+    # Supprimer un modèle
+    ollama rm <nom_du_model>
 ```
 
 
