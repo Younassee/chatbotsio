@@ -51,6 +51,31 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
     bun dev
 ```
 
+## MONGODB AS DOCKER SERVICE (optionnelle)
+
+``` yml
+    services:
+  mongodb:
+    image: mongodb/mongodb-community-server:7.0.11-ubi8
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: chatbot
+      
+    restart: always
+```
+
+``` zsh
+    # Run the service
+    docker-compose up
+    # Stop the service
+    docker-compose down
+```
+
+
 ## Seeding
 
 ``` zsh
