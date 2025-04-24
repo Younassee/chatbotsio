@@ -44,7 +44,7 @@ echo JWT_SECRET=mysecretkey >> .env
 
 REM Create a .env.example file for example environment variables
 echo PORT=3000 > .env.example
-echo DB_URI=mongodb://localhost:27017/mydatabase >> .env.example
+echo MONGO_URI=mongodb://localhost:27017/mydatabase >> .env.example
 echo JWT_SECRET=mysecretkey >> .env.example
 
 

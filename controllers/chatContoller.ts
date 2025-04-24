@@ -6,7 +6,6 @@ import { ChatModel } from '../models/chatModel'
 
 
 export  async  function chat (req: Request, res: Response) {
-
     // @ts-ignore USER_ID
     const userId = req.user.id;
     //[{content: string, role: string}]
@@ -35,4 +34,37 @@ export  async  function chat (req: Request, res: Response) {
 
 /// *** SUPPRIMER LA CONVERSATION
 
+
+export  async function deleteChat(req: Request, res: Response) {
+    // @ts-ignore USER_ID
+    const userId = req.user.id;
+    const chatId = req.params.id
+    await  ChatModel.findOneAndDelete({_id : chatId, userId: userId})
+    return res.status(200).json({message: "chat delete"})
+}
+
 /// *** RECUPERER L'historique
+
+export  async  function  chatHistory(req: Request, res: Response) {
+    // @ts-ignore USER_ID
+    const userId = req.user.id;
+    const histories = await  ChatModel.find({userId: userId}).select("title")
+    return res.status(200).json(histories)
+}
+
+export  async  function  chatById(req: Request, res: Response) {
+    const id = req.params.id
+    const chat = await ChatModel.findById(id)
+    if(!chat) return res.status(404).json({message : "Chat not found"})
+
+    return res.status(200).json(chat)
+}
+
+
+export async function getLastChat(req: Request, res: Response) {
+    // @ts-ignore
+    const user = req.user!
+    const conversation = await ChatModel.findOne({userId: user.id}).sort({ _id: -1 }).select("_id");
+    if (!conversation) return res.status(404).json({ error: "No Chat Found"})
+    return res.json(conversation)
+}

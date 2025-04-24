@@ -40,8 +40,14 @@ export async function login (req: Request, res: Response) {
     const match = await bcrypt.compare(value.password, user.password)
     if (!match) return res.status(400).json({message: "Invalid password"})
     // send response
-    const payload = {email: user.email, username: user.username, id : user._id, role: user.role}
-    const token = jwt.sign(payload, process.env.JWT_SECRET!, {expiresIn: '1h'})
+    const payload = {
+        email: user.email,
+        username: user.username,
+        id : user._id,
+        role: user.role,
+        thumbnail : user.thumbnail
+    }
+    const token = jwt.sign(payload, process.env.JWT_SECRET!, {expiresIn: '6h'})
     return res.status(200).json({token})
 }
 
@@ -52,7 +58,3 @@ export async function me (req: Request, res: Response) {
     return res.status(200).json({user: req.user})
 
 }
-
-
-// *** update username
-// *** findByIdAndUpdate

@@ -3,7 +3,9 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "dev": "bun --watch index.ts"
+    "dev": "bun --watch index.ts",
+    "db:seed:admin": "bun run database/seeders/adminSeeder.ts",
+    "db:seed:users": "bun run database/seeders/fakeUsersSeeder.ts"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
@@ -16,26 +18,32 @@
     "@types/jsonwebtoken": "^9.0.7",
     "@types/mongoose": "^5.11.97",
     "@types/morgan": "^1.9.9",
+    "@types/multer": "^1.4.12",
     "@types/node": "^22.10.5",
     "@types/supertest": "^6.0.2",
+    "@types/uuid": "^10.0.0",
     "@types/winston": "^2.4.4"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "@faker-js/faker": "^9.6.0",
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "express-async-errors": "^3.1.1",
+    "express-list-endpoints": "^7.1.1",
     "helmet": "^8.0.0",
     "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.3",
     "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
     "ollama": "^0.5.11",
     "supertest": "^7.0.0",
+    "uuid": "^11.0.5",
     "winston": "^3.17.0"
   }
 }
